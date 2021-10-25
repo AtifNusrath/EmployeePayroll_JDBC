@@ -1,5 +1,6 @@
 package com.bridgelabz.service;
 
+import com.bridgelabz.exception.EmployeePayrollException;
 import com.bridgelabz.model.EmployeePayrollData;
 
 import java.sql.*;
@@ -74,11 +75,6 @@ public class EmployeePayrollService {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()){
-//                int id = resultSet.getInt("id");
-//                String name = resultSet.getString("name");
-//                double salary = resultSet.getDouble("salary");
-//                LocalDate startDate = resultSet.getDate("start").toLocalDate();
-//                employeePayrollList.add(new EmployeePayrollData(id,name,salary,startDate));
                 System.out.println(resultSet.getInt(1) + "\t" + resultSet.getString(2) + "\t" + resultSet.getDouble(3) + "\t" + resultSet.getDate(4));
             }
         } catch (SQLException e) {
@@ -86,6 +82,22 @@ public class EmployeePayrollService {
         }
         return employeePayrollList;
     }
+
+    public void updateDataUsingStatement() {
+        System.out.println("Enter the Employee Name: ");
+        String name = scanner.next();
+        System.out.println("Enter Employee Updated Salary: ");
+        double salary = scanner.nextDouble();
+        String query = String.format("update payroll_service set salary = %.2f where name= '%s';", salary, name);
+        try {
+            connection = this.getConnection();
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Table created");
+        }catch (SQLException e) {
+            e.printStackTrace();        }
+    }
+
 //    public static void main(String[] args) {
 //EmployeePayrollService emp = new EmployeePayrollService();
 ////        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:/Volumes/Production/Courses/Programs/JavaPrograms/TestDB/testjava.db");

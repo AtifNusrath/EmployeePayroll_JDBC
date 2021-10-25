@@ -8,7 +8,10 @@ public class EmployeepayrollMain {
     public static void main(String[] args) throws ParseException {
         EmployeePayrollService employeePayrollService=new EmployeePayrollService();
         employeePayrollService.createTable();
+        employeePayrollService.readData();
         employeePayrollService.insertEmployee();
+        employeePayrollService.readData();
+        employeePayrollService.updateDataUsingStatement();
         employeePayrollService.readData();
     }
 }

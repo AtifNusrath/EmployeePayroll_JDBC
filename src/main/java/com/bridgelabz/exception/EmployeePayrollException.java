@@ -5,7 +5,7 @@ import com.bridgelabz.service.EmployeePayrollService;
 
 import java.util.List;
 
-public class EmployeePayrollException {
+public class EmployeePayrollException extends Throwable {
     public enum IOService{CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
     private List<EmployeePayrollData> employeePayrollList;
 
