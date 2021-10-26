@@ -11,8 +11,5 @@ public class EmployeepayrollMain {
         employeePayrollService.readData();
         employeePayrollService.insertEmployee();
         employeePayrollService.readData();
-        employeePayrollService.updateDataUsingStatement();
-        employeePayrollService.readData();
-        employeePayrollService.prepareStatementForEmployeeData();
     }
 }
