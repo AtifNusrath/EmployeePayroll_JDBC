@@ -13,6 +13,4 @@ public class EmployeePayrollService {
         }
         return employeePayrollList;
     }
-
-
 }
