@@ -1,6 +1,7 @@
 package com.bridgelabz.service;
 
 import com.bridgelabz.model.EmployeePayrollData;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -10,7 +11,7 @@ public class EmployeePayrollService {
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
 
     private List<EmployeePayrollData> employeePayrollList;
-    public static EmployeePayrollDBService employeePayrollDBService;
+    private static EmployeePayrollDBService employeePayrollDBService;
 
     public EmployeePayrollService() {
         employeePayrollDBService = EmployeePayrollDBService.getInstance();
@@ -30,9 +31,9 @@ public class EmployeePayrollService {
 
     public void updateEmployeeSalary(String name, double salary) throws SQLException {
         int result = employeePayrollDBService.updateEmployeeData(name, salary);
-        if (result==0)return;
+        if (result == 0) return;
         EmployeePayrollData employeePayrollData = this.getEmployeePayrollData(name);
-        if (employeePayrollData!=null) employeePayrollData.salary=salary;
+        if (employeePayrollData != null) employeePayrollData.salary = salary;
     }
 
     private EmployeePayrollData getEmployeePayrollData(String name) {
