@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class EmployeePayrollData {
-    private final int id;
-    private final String name;
-    private final double salary;
-    private final LocalDate startDate;
+    public int id;
+    public String name;
+    public double salary;
+    public LocalDate startDate;
 
     public EmployeePayrollData(int id, String name, double salary, LocalDate startDate) {
 
@@ -30,11 +30,10 @@ public class EmployeePayrollData {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof EmployeePayrollData)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         EmployeePayrollData that = (EmployeePayrollData) o;
         return id == that.id &&
                 Double.compare(that.salary, salary) == 0 &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(startDate, that.startDate);
+                name.equals(that.name);
     }
 }
