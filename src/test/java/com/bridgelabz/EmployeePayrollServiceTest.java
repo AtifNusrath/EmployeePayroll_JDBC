@@ -4,6 +4,7 @@ import com.bridgelabz.model.EmployeePayrollData;
 import com.bridgelabz.service.EmployeePayrollService;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,11 +21,20 @@ public class EmployeePayrollServiceTest {
     }
 
     @Test
-    public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB() {
+    public void givenNewSalaryForEmployee_WhenUpdated_ShouldSyncWithDB() throws SQLException {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(DB_IO);
         employeePayrollService.updateEmployeeSalary("dravid", 6000000.00);
         boolean result = employeePayrollService.checkEmployeeInSyncWithDB("dravid");
+        assertTrue(result);
+    }
+
+
+    public void givenNewEmployee_WhenAdded_ShouldSyncWithDB() {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(DB_IO);
+        employeePayrollService.addEmployeePayroll("Atif", 5000000.00, LocalDate.now(), "M");
+        boolean result = employeePayrollService.checkEmployeeInSyncWithDB("Atif");
         assertTrue(result);
     }
 

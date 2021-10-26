@@ -7,9 +7,9 @@ import java.text.ParseException;
 public class EmployeepayrollMain {
     public static void main(String[] args) throws ParseException {
         EmployeePayrollDBService employeePayrollService = new EmployeePayrollDBService();
-        employeePayrollService.createTable();
+        //employeePayrollService.createTable();
         employeePayrollService.readData();
-        employeePayrollService.insertEmployee();
+        //employeePayrollService.insertEmployee();
         employeePayrollService.readData();
     }
 }
