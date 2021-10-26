@@ -1,10 +1,9 @@
 package com.bridgelabz.service;
 
 import com.bridgelabz.model.EmployeePayrollData;
-
 import java.util.List;
 
-class EmployeePayrollService extends Throwable {
+public class EmployeePayrollService {
     public enum IOService{CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
     private List<EmployeePayrollData> employeePayrollList;
 
