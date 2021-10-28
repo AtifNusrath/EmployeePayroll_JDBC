@@ -1,7 +1,6 @@
 package com.bridgelabz.model;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class EmployeePayrollData {
     public int id;

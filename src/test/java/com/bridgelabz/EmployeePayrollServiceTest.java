@@ -94,4 +94,5 @@ public class EmployeePayrollServiceTest {
         double employeePayrollData1 = employeePayrollService.performVariousOperations("COUNT", "M");
         assertEquals(employeePayrollData1, 4, 0.0);
     }
+
 }
